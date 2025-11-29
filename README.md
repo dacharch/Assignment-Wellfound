@@ -1,73 +1,160 @@
-# React + TypeScript + Vite
+# User Management + Analytics Dashboard  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini admin-style dashboard built using **React + TypeScript**, featuring:
 
-Currently, two official plugins are available:
+- User Management (List + Filters + Sorting + Pagination)
+- User Details Page with Edit Modal
+- Analytics Overview with Charts
+- Reusable UI Components (Table, Modal, Input, Select, Skeleton)
+- Global state management using **Zustand**
+- Fully responsive dashboard layout with Sidebar
+- Mock data + Local state updates
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Users List Page (`/users`)
+Displays a paginated, filterable, sortable list of users.
 
-## Expanding the ESLint configuration
+**Includes:**
+- Avatar  
+- Name  
+- Email  
+- Status (Active/Inactive)  
+- Created Date  
+- View + Edit actions  
+- Filtering by name + status  
+- Sorting by name + created date  
+- Client-side pagination  
+- Skeleton loader during loading  
+- Debounced search  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### User Details Page (`/users/:id`)
+Shows a detailed user profile:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Avatar, name, email, status  
+- Last 5 mock activities  
+- Edit User (opens modal)  
+- Real-time UI update via Zustand  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✅ Analytics Overview Page (`/analytics`)
+Contains two charts (using **Recharts**):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Signup Trend** (Line Chart)  
+- **Active vs Inactive Users** (Pie Chart)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Charts use mock data or derived data from users.
+
+---
+
+### 🎨 Clean UI / UX
+- Admin-style left sidebar  
+- Right side content area wrapped in a beautiful responsive card  
+- TailwindCSS based design  
+- Fully responsive on mobile/tablet/desktop  
+
+---
+
+### 🧠 State Management  
+Using **Zustand** for:
+
+- User list  
+- User filters  
+- Sorting  
+- Updating users  
+- Getting user by ID  
+- Theme support (optional)  
+
+---
+
+### 🗂️ Folder Structure
+
+src/
+│
+├── api/
+│ ├── index.ts
+│ └── usersApi.ts
+│
+├── assets/
+│ └── (images, icons)
+│
+├── components/
+│ ├── ui/ (Input, Button, Card, Modal, Select)
+│ ├── table/ (Table, Pagination, TableSkeleton)
+│ ├── users/ (UserCard, EditUserModal, Filters)
+│ └── charts/ (SignupTrendChart, ActiveStatusChart)
+│
+├── hooks/
+│ ├── useDebounce.ts
+│ └── useDarkMode.ts
+│
+├── layouts/
+│ ├── DashboardLayout.tsx
+│ └── Sidebar.tsx
+│
+├── mocks/
+│ └── users.ts
+│
+├── pages/
+│ ├── users/
+│ │ ├── UsersList.tsx
+│ │ └── UserDetails.tsx
+│ └── analytics/
+│ └── Analytics.tsx
+│
+├── router/
+│ └── AppRoutes.tsx
+│
+├── store/
+│ ├── useUsersStore.ts
+│ └── useThemeStore.ts
+│
+├── styles/
+│ └── globals.css
+│
+├── types/
+│ └── user.ts
+│
+├── App.tsx
+└── main.tsx
+
+
+---
+
+## 📦 Libraries Used
+
+### Frontend
+- **React 18**
+- **TypeScript**
+- **React Router**
+- **Zustand** (state management)
+- **Recharts** (charts)
+- **TailwindCSS** (styling)
+- **date-fns** (date utilities)
+
+### Development Tools
+- Vite  
+- ESLint + Prettier (optional)  
+- JSON Server (optional for API simulation)  
+
+---
+
+## 🔧 How to Run the Project
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/your-repo-name.git
+
+cd your-repo-name
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+
