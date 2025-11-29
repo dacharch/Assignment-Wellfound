@@ -104,9 +104,9 @@ Using **Zustand** for:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/dacharch/Assignment-Wellfound
 
-cd your-repo-name
+cd Assignment-Wellfound
 
 # Install dependencies
 npm install
