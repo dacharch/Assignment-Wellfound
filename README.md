@@ -1,5 +1,11 @@
 # User Management + Analytics Dashboard  
 
+
+
+https://github.com/user-attachments/assets/db94a2c0-6c7a-4e17-ad09-5aba7860fe8d
+
+
+
 A mini admin-style dashboard built using **React + TypeScript**, featuring:
 
 - User Management (List + Filters + Sorting + Pagination)
