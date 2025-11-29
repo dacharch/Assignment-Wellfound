@@ -73,7 +73,7 @@ Using **Zustand** for:
 ---
 
 ### 🗂️ Folder Structure
-
+---bash
 src/
 │
 ├── api/
