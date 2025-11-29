@@ -1,11 +1,10 @@
-import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./router/AppRoutes";
 
-const App: React.FC = () => {
+export default function App() {
   return (
-    <div>
-      <h2>hello buddy</h2>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
-};
-
-export default App;
+}
